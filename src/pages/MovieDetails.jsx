@@ -12,7 +12,7 @@ import { Chip } from "@mui/material";
 import { BsCalendar2Date } from "react-icons/bs";
 import { formate } from "../features/formatNumber";
 import PlayerModal from "../components/PlayerModal";
-import { movieUrl, api_key } from "../config/data";
+import { movieUrl } from "../config/data";
 
 const MovieDetails = () => {
   const page = useRef();
@@ -24,18 +24,20 @@ const MovieDetails = () => {
   const { id } = useParams();
 
   const getMovieDetails = async () => {
+    // eslint-disable-next-line
     const url = `${movieUrl}${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
     try {
       const info = await axios
         .get(url)
         .then((results) => setMovie(results.data));
+      console.log(info);
     } catch (error) {
       console.log(error);
     }
   };
-
   const getTrailerDetails = async () => {
+    // eslint-disable-next-line
     const trailerUrl = `${movieUrl}${id}/videos?api_key=${process.env.REACT_APP_API_KEY}`;
     try {
       const videoInfo = await axios
@@ -46,7 +48,9 @@ const MovieDetails = () => {
       videoInfo.results.filter((video) => {
         if (video.name === "Official Trailer") {
           videoData = video;
-          return videoData;
+          return true;
+        } else {
+          return false;
         }
       });
 
@@ -59,6 +63,7 @@ const MovieDetails = () => {
   useEffect(() => {
     getMovieDetails();
     getTrailerDetails();
+    // eslint-disable-next-line
   }, [id, videoID]);
   // console.log(page);
   const handlePlayer = () => {
