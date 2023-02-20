@@ -21,7 +21,7 @@ const Banner = () => {
         >
           {topRatedMoviesArray &&
             topRatedMoviesArray.map((movie) => {
-              const { backdrop_path, title, overview, release_date } = movie;
+              const { backdrop_path, title, overview } = movie;
               return (
                 <div
                   key={movie.id}

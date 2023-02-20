@@ -38,6 +38,7 @@ const Search = () => {
       }
     };
     fetchMovies();
+    // eslint-disable-next-line
   }, [searchQuery, page]);
   console.log(searchMovie);
 
