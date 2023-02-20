@@ -12,7 +12,7 @@ import PlayerModal from "../components/PlayerModal";
 import { useGlobalState } from "../context/movieContext";
 
 // api urls for getting the movie
-const api_key = `?api_key=a050af4c5354d8e3d4d8d50330fb50d9`;
+const api_key = `?api_key=${process.env.REACT_APP_API_KEY}`;
 const baseUrl = `https://api.themoviedb.org/3/tv/`;
 
 const TvDetails = () => {

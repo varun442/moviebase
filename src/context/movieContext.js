@@ -1,12 +1,8 @@
 import axios from "axios";
 import React, { createContext, useEffect, useContext, useState } from "react";
-
+import { baseUrl } from "../config/data";
+import { image_url } from "../config/data";
 const movieContext = createContext();
-
-// api urls for getting the movie
-const baseUrl = "https://api.themoviedb.org/3";
-const api_key = "a050af4c5354d8e3d4d8d50330fb50d9";
-const image_url = "https://image.tmdb.org/t/p";
 
 const AppProvider = ({ children }) => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -18,12 +14,12 @@ const AppProvider = ({ children }) => {
   const getMovies = async () => {
     setIsLoading(true);
     await Promise.allSettled([
-      axios(`${baseUrl}/movie/top_rated?api_key=${api_key}`),
+      axios(`${baseUrl}/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`),
       axios(
-        `${baseUrl}/movie/now_playing?api_key=${api_key}&language=en-US&page=1`
+        `${baseUrl}/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       ),
-      axios(`${baseUrl}/trending/movie/day?api_key=${api_key}`),
-      axios(`${baseUrl}/tv/airing_today?api_key=${api_key}&language=en-US`),
+      axios(`${baseUrl}/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`),
+      axios(`${baseUrl}/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`),
     ])
       .then((results) => {
         const [

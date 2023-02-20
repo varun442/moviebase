@@ -12,7 +12,7 @@ const Search = () => {
 
   let query = useQuery();
   const searchQuery = query.get("query").split(" ").join("+");
-  const api_key = `?api_key=a050af4c5354d8e3d4d8d50330fb50d9`;
+  const api_key = `?api_key=${process.env.REACT_APP_API_KEY}`;
   const searchUrl = `https://api.themoviedb.org/3/search/movie${api_key}&query=`;
 
   useEffect(() => {

@@ -1,8 +1,8 @@
-import React, { useEffect,useRef,  useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 
-const api_key = "?api_key=a050af4c5354d8e3d4d8d50330fb50d9";
+const api_key = `?api_key=${process.env.REACT_APP_API_KEY}`;
 const movieUrl = `https://api.themoviedb.org/3/discover/movie${api_key}&language=en-US`;
 const genreUrl = `https://api.themoviedb.org/3/genre/movie/list${api_key}&language=en-US`;
 
@@ -14,7 +14,7 @@ const Movies = () => {
   const [selectGenres, setSelectGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [items, setItems] = useState([]);
-  const movie = useRef()
+  const movie = useRef();
 
   useEffect(() => {
     const genre = selectGenres.join(",");
@@ -62,14 +62,12 @@ const Movies = () => {
     e.preventDefault();
     if (page > totalPage) return setPage(1);
     setPage(page + 1);
-    movie.current.scrollIntoView({ behavior: 'smooth' })
-
+    movie.current.scrollIntoView({ behavior: "smooth" });
   };
   const pageDecrease = () => {
     if (page <= totalPage) return setPage(1);
     setPage(page - 1);
-    movie.current.scrollIntoView({ behavior: 'smooth' })
-
+    movie.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>

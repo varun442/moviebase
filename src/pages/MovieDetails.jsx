@@ -12,9 +12,7 @@ import { Chip } from "@mui/material";
 import { BsCalendar2Date } from "react-icons/bs";
 import { formate } from "../features/formatNumber";
 import PlayerModal from "../components/PlayerModal";
-// api urls for getting the movie
-const baseUrl = "https://api.themoviedb.org/3/movie/";
-const api_key = "a050af4c5354d8e3d4d8d50330fb50d9";
+import { movieUrl, api_key } from "../config/data";
 
 const MovieDetails = () => {
   const page = useRef();
@@ -26,7 +24,7 @@ const MovieDetails = () => {
   const { id } = useParams();
 
   const getMovieDetails = async () => {
-    const url = `${baseUrl}${id}?api_key=${api_key}&language=en-US`;
+    const url = `${movieUrl}${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
     try {
       const info = await axios
@@ -38,7 +36,7 @@ const MovieDetails = () => {
   };
 
   const getTrailerDetails = async () => {
-    const trailerUrl = `${baseUrl}${id}/videos?api_key=${api_key}`;
+    const trailerUrl = `${movieUrl}${id}/videos?api_key=${process.env.REACT_APP_API_KEY}`;
     try {
       const videoInfo = await axios
         .get(trailerUrl)
@@ -85,10 +83,12 @@ const MovieDetails = () => {
               <h1>{movie.title}</h1>
               <div className="categories">
                 {movie.genres?.map((genre, index) => (
-                  
-                    
-              <Chip style={{ margin: '2px 2px', color:'black' }} label={genre.name} variant="filled" size="small"  />
-
+                  <Chip
+                    style={{ margin: "2px 2px", color: "black" }}
+                    label={genre.name}
+                    variant="filled"
+                    size="small"
+                  />
                 ))}
               </div>
               <div className="rating">
@@ -162,17 +162,29 @@ const MovieDetails = () => {
                 <p>{movie.adult ? "Yes" : "No"}</p>
               </div>
             </div>
-            <div
-              className="trailer"
-              style={{
-                backgroundImage: `url(${
-                  movie.backdrop_path ? getImage(movie?.backdrop_path, 500) : ""
-                })`,
-              }}
-            >
-              <button type="button" className="play-btn" onClick={handlePlayer}>
-                <AiFillPlayCircle size={50} />
-              </button>
+            <div>
+              <div
+                className="trailer"
+                style={{
+                  backgroundImage: `url(${
+                    movie.backdrop_path
+                      ? getImage(movie?.backdrop_path, 500)
+                      : ""
+                  })`,
+                }}
+              >
+                <button
+                  type="button"
+                  className="play-btn"
+                  onClick={handlePlayer}
+                >
+                  <AiFillPlayCircle size={50} />
+                </button>
+              </div>
+
+              <div className="watchlist">
+                <button className="btn-watchlist">Add to Watchlist</button>
+              </div>
             </div>
           </div>
         </div>

@@ -8,9 +8,7 @@
   outline: none;
   cursor: pointer;
   font-family: "Raleway", sans-serif;
-
 }
-
 
 /* App CSS
 -------------------*/
@@ -55,7 +53,7 @@
   margin-bottom: 15px;
 }
 
-.view-details{
+.view-details {
   margin-top: 30px;
 }
 @media (max-width: 768px) {
@@ -215,7 +213,7 @@ h5.title {
 }
 
 .form-control label::after {
-  content: '';
+  content: "";
   position: absolute;
   width: calc(100% + 15px);
   height: 100%;
@@ -235,7 +233,7 @@ select {
   outline: none;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -382,7 +380,7 @@ h2.heading {
 
 .backdrop_poster::after {
   position: absolute;
-  content: '';
+  content: "";
   background: linear-gradient(180deg, var(--dark), transparent);
   width: 100%;
   height: 100%;
@@ -400,7 +398,7 @@ h2.heading {
   display: flex;
   gap: 5px;
   margin-left: 0px !important;
-  margin:  10px ;
+  margin: 10px;
 }
 
 p.genre {
@@ -563,7 +561,7 @@ p.genre {
 
 .trailer::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   background: linear-gradient(145deg, var(--dark), transparent);
@@ -587,8 +585,28 @@ button.play-btn:hover {
   color: var(--secondary-color);
 }
 
-
-.prev, .next{
+.prev,
+.next {
   color: white;
   background-color: black;
+}
+
+.watchlist {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.btn-watchlist {
+  width: 100%;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: "Raleway", sans-serif;
+  transition: transform 0.4s;
+}
+
+
+.btn-watchlist:hover {
+  transform: scale(1.1); 
 }

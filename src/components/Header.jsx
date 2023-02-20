@@ -37,9 +37,6 @@ const Header = () => {
         pathname !== "/register" &&
         pathname !== "/search" &&
         pathname !== "/signin" &&
-        pathname !== "/contact" &&
-        pathname !== "/terms-conditions" &&
-        pathname !== "/privacy" &&
         pathname !== "/tv"
           ? "absolute"
           : "relative"

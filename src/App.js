@@ -17,6 +17,7 @@ import {
 } from "./pages";
 
 const App = () => {
+console.log(process.env);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
