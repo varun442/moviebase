@@ -30,3 +30,5 @@ Explore more about MovieBase [here](https://movieebasee.netlify.app)
 - Currently working on  - User Authentication using Firebase, Add to Watchlist, Enhancements in UI
 
 ## Find app snippets here  
+[Mobile](https://github.com/varun442/moviebase/tree/master/src/assets/mobile)
+[Desktop](https://github.com/varun442/moviebase/tree/master/src/assets/desktop)
