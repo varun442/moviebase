@@ -1,4 +1,4 @@
-# MOVIEBASE (Modern Movie App) [https://movieebasee.netlify.app/]
+# [MOVIEBASE (Modern Movie App)] (https://movieebasee.netlify.app)
 
 ## Available Scripts
 
