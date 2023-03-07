@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+![alt text](https://github.com/varun442/moviebase/blob/master/src/assets/WatchMe_logo.png)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
