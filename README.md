@@ -11,12 +11,12 @@ So whether you're a die-hard cinephile or just looking for something to watch on
 Explore more about MovieBase [here](https://movieebasee.netlify.app)
 
 ### Tech Stack Used
--React JS 
--Context API
--React Router Dom
--Axios
--React Carousel
--Layout inspired from (trailerspice.com)
+1. React JS 
+2. Context API
+3. React Router Dom
+4. Axios
+5. React Carousel
+6. Layout inspired from [trailerspice.com](trailerspice.com)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
